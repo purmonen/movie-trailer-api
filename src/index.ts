@@ -22,7 +22,11 @@ export async function lambdaHandler(event: ALBEvent, context: ALBEventRequestCon
         };
         callback(null, response);
     } catch (e) {
-        callback(e);
+        const response = {
+            statusCode: 400,
+            body: JSON.stringify({ error: e.message })
+        };
+        callback(null, response);
     }   
 }
 
