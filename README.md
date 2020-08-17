@@ -1,5 +1,5 @@
 # Movie Trailers
-This repo consists of a Typescript api for fetching trailer urls using TMDb (themoviedb.org) from Viaplay movie resource links and some glue code to use this as a serverless application on AWS Lambda. The AWS Lambda function is called from a rest api provied by AWS API Gateway.
+This repo consists of a Typescript api for fetching trailer urls using TMDb (themoviedb.org) from Viaplay movie resource links and some glue code to use this as a serverless application on AWS Lambda. The AWS Lambda function is called from a rest api provided by AWS API Gateway.
 
 ## MovieTrailerApi
 Takes a `tmdbApiKey` as constructor argument and has a single public function `trailerForMovieResourceLink(movieResourceLink: string)` for retrieving the trailer. This api can easily be used within any kind of application such as an Express app, a command line application or a serverless function.
