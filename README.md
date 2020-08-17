@@ -24,6 +24,7 @@ Response:
 ## How to run locally
 I do not provide a way to spin up a local web server, but the lambda response handler can be called through the command line.
 ```bash
+git clone https://github.com/purmonen/movie-trailer-api
 npm install
 npm run build
 node dist/commandLine.js {movieResourceLink}
