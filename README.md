@@ -1,4 +1,4 @@
-# Viaplay Trailers
+# Movie Trailers
 This repo consists of a Typescript api for fetching trailer urls using TMDb (themoviedb.org) from Viaplay movie resource links and some glue code to use this as a serverless application on AWS Lambda. The AWS Lambda function is called from a rest api provied by AWS API Gateway.
 
 ## MovieTrailerApi
