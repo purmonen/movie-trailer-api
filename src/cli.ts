@@ -1,4 +1,4 @@
-import { lambdaHandler } from "./index";
+import { lambdaHandler } from "./lambdaHandler";
 
 // This allows you to call the lambda function locally by providing the movie resource link as a command line argument
 
