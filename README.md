@@ -28,7 +28,7 @@ git clone https://github.com/purmonen/movie-trailer-api
 cd movie-trailer-api
 npm install
 npm run build
-node dist/commandLine.js {movieResourceLink}
+node dist/cli.js http://content.viaplay.se/pc-se/film/fargo-1996
 ```
 
 ## Test
