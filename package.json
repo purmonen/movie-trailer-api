@@ -13,6 +13,7 @@
     "node-themoviedb": "^0.2.4"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.61",
     "@types/jest": "^22.2.2",
     "@types/node": "^9.6.0",
     "jest": "^26.1.0",

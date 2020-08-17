@@ -1,12 +1,18 @@
 require('dotenv').config();
 import { MovieTrailerApi } from './MovieTrailerApi';
+import { ALBEvent, ALBEventRequestContext, ALBCallback } from "aws-lambda"
 
-// AWS Lambda handler - will be called from a POST-request
-exports.handler = async (event: any, context: any, callback: any) => {
+export async function lambdaHandler(event: ALBEvent, context: ALBEventRequestContext, callback: ALBCallback) {
     try {
-        const movieResourceLink = JSON.parse(event.body).movieResourceLink;
         if (!process.env.tmdbApiKey) {
             throw new Error(`Could not read tmdbApiKey from .env file`);
+        }
+        if (event.body === null) {
+            throw new Error("Event body should not be null")
+        }
+        const movieResourceLink = JSON.parse(event.body).movieResourceLink;
+        if (movieResourceLink === undefined) {
+            throw new Error("No movie resource link provided");
         }
         const movieTrailerApi = new MovieTrailerApi(process.env.tmdbApiKey);
         const trailer = await movieTrailerApi.trailerForMovieResourceLink(movieResourceLink);
@@ -19,3 +25,6 @@ exports.handler = async (event: any, context: any, callback: any) => {
         callback(e);
     }   
 }
+
+// AWS Lambda handler - will be called from a POST-request
+exports.handler = lambdaHandler;

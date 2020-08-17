@@ -11,11 +11,14 @@ describe("Dummy test", () => {
             } else if (url.includes('content.viaplay.se')) {
                 return viaplayJson;
             }
-            throw new Error('Do not have a mock for this url?!')
+            return {};
+            //throw new Error('Do not have a mock for this url?!')
         };
 
         const api = new MovieTrailerApi("dummyApiKey", mockFetchJson);
         api.trailerForMovieResourceLink("http://content.viaplay.se/pc-se/film/fargo-1996")
         expect(await api.trailerForMovieResourceLink("http://content.viaplay.se/pc-se/film/fargo-1996")).toBe("https://www.youtube.com/watch?v=h2tY82z3xXU");
+
+        await expect(api.trailerForMovieResourceLink("http://bad-link.se")).rejects.toThrow();
     });
 });
